@@ -9,6 +9,7 @@ const mockComponents: Component[] = [
     description:
       "Use this component to help users search for information within your service.",
     parent: "GOV.UK Design System",
+    category: "component",
     accessability: "AA",
     created_at: "2025-10-12T09:00:00",
     updated_at: "2026-03-15T11:30:00",
@@ -21,6 +22,7 @@ const mockComponents: Component[] = [
     description:
       "Help users find what they're looking for by filtering results.",
     parent: "GOV.UK Design System",
+    category: "pattern",
     accessability: "AA",
     created_at: "2025-11-05T14:20:00",
     updated_at: "2026-02-20T10:15:00",
@@ -33,6 +35,7 @@ const mockComponents: Component[] = [
     description:
       "Display search results in a clear and accessible format for users.",
     parent: "HMRC Design Patterns",
+    category: "pattern",
     accessability: "AA",
     created_at: "2025-12-01T08:45:00",
     updated_at: "2026-03-10T16:00:00",
@@ -45,6 +48,7 @@ const mockComponents: Component[] = [
     description:
       "Allow users to search across your entire service or website.",
     parent: "NHS Design System",
+    category: "component",
     accessability: "AAA",
     created_at: "2025-09-18T11:30:00",
     updated_at: "2026-01-25T13:45:00",
@@ -57,6 +61,7 @@ const mockComponents: Component[] = [
     description:
       "Help users complete their search query with suggestions as they type.",
     parent: "GOV.UK Design System",
+    category: "component",
     accessability: "AA",
     created_at: "2025-11-20T09:15:00",
     updated_at: "2026-02-28T16:45:00",
@@ -69,6 +74,7 @@ const mockComponents: Component[] = [
     description:
       "Enable users to refine searches with multiple criteria and filters.",
     parent: "Home Office Design System",
+    category: "pattern",
     accessability: "AA",
     created_at: "2025-10-30T10:00:00",
     updated_at: "2026-03-05T14:30:00",
@@ -81,6 +87,7 @@ const mockComponents: Component[] = [
     description:
       "Let users save and reuse their search queries for future sessions.",
     parent: "Ministry of Justice Design System",
+    category: "pattern",
     accessability: "AA",
     created_at: "2025-12-10T13:20:00",
     updated_at: "2026-03-12T09:50:00",
@@ -93,6 +100,7 @@ const mockComponents: Component[] = [
     description:
       "Track and analyze user search behavior to improve your service.",
     parent: "HMRC Design Patterns",
+    category: "pattern",
     accessability: "AA",
     created_at: "2025-11-15T15:40:00",
     updated_at: "2026-02-18T11:25:00",
@@ -105,6 +113,7 @@ const mockComponents: Component[] = [
     description:
       "Allow users to search using voice input for improved accessibility.",
     parent: "GOV.UK Design System",
+    category: "pattern",
     accessability: "AAA",
     created_at: "2025-12-20T10:10:00",
     updated_at: "2026-03-08T15:20:00",

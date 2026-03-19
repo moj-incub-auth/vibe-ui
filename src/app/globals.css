@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--govuk-body-background-colour, #f4f8fb);
+  --foreground: var(--govuk-text-colour, #0b0c0c);
 }
 
 @theme inline {
@@ -12,15 +12,169 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "GDS Transport", Arial, Helvetica, sans-serif;
+}
+
+/* Custom hero styling (matches GOV.UK hero / branding) */
+.hero {
+  background-color: #c51f5d;
+  padding: 70px 15px;
+  color: #ffffff;
+}
+
+.hero__heading {
+  color: #fff;
+}
+
+.hero__heading span {
+  color: #fff;
+}
+
+.hero__description {
+  color: #fff;
+}
+
+.hero__link {
+  color: #fff;
+}
+
+.hero__link:hover,
+.hero__link:active,
+.hero__link:visited {
+  color: #fff;
+}
+
+.hero__logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero__logo img {
+  margin-right: 15px;
+}
+
+.hero__logo figcaption {
+  color: #fff;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+}
+
+.card {
+  margin-bottom: 40px;
+  background: #F7F7F7;
+  border: 1px solid #d9dadb;
+  position: relative;
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__heading {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.card__description {
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+.card--clickable {
+  border-bottom-width: 5px;
+}
+
+.card--clickable:hover,
+.card--clickable:active {
+  cursor: pointer;
+}
+
+.card--clickable:hover .card__heading a,
+.card--clickable:hover .card__link,
+.card--clickable:active .card__heading a,
+.card--clickable:active .card__link {
+  color: #003078;
+  text-decoration: none;
+}
+
+.card--clickable:hover .card__heading a:focus,
+.card--clickable:hover .card__link:focus,
+.card--clickable:active .card__heading a:focus,
+.card--clickable:active .card__link:focus {
+  outline: 3px solid transparent;
+  color: #0b0c0c;
+  background-color: #fd0;
+  box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+  text-decoration: none;
+}
+
+.card--clickable:hover {
+  border-color: #b1b4b6;
+}
+
+.card--clickable:active {
+  border-color: #b1b4b6;
+  bottom: -1px;
+}
+
+.card__footer {
+  margin-top: 40px;
+}
+
+.card__tags {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card__tags .govuk-tag {
+  text-align: center;
+}
+
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  padding: 0;
+}
+
+@media (max-width: 48.0525em) {
+  .card-group {
+    margin-bottom: 30px;
+  }
+}
+
+.card-group__item {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+@media (max-width: 48.0525em) {
+  .card-group__item {
+    flex: 0 0 100%;
+  }
+}
+
+.card-group__item .card {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 48.0525em) {
+  .card-group__item .card {
+    margin-bottom: 15px;
+  }
+
+  .card-group__item:last-child .card {
+    margin-bottom: 0;
+  }
 }

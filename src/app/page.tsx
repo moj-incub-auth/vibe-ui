@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ComponentCard from "@/components/ComponentCard";
 import SearchHeader from "@/components/SearchHeader";
 import AISummary from "@/components/AISummary";
@@ -9,10 +9,7 @@ import { searchComponents } from "@/lib/api";
 import type { Component } from "@/types/api";
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState(
-    "I want to help users find something in the service"
-  );
-  const [submittedQuery, setSubmittedQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [components, setComponents] = useState<Component[]>([]);
   const [message, setMessage] = useState<string>("");
@@ -22,15 +19,13 @@ export default function Home() {
   const filtersEnabled =
     process.env.NEXT_PUBLIC_ENABLE_FILTERS === "true";
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim()) return;
-
+  const handleSearch = async (query: string) => {
+    setSearchQuery(query);
     setIsSearching(true);
     setError("");
-    setSubmittedQuery(searchQuery);
 
     try {
-      const response = await searchComponents(searchQuery);
+      const response = await searchComponents(query);
       setComponents(response.components);
       setMessage(response.message);
     } catch (err) {
@@ -51,56 +46,39 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <main className="govuk-main-wrapper">
       <SearchHeader
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
         onSearch={handleSearch}
         isSearching={isSearching}
+        error={error}
       />
 
-      <main className="max-w-5xl mx-auto px-6 py-8">
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
-            {error}
-          </div>
-        )}
-
-        {isSearching && (
-          <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-            <p className="mt-4 text-gray-600">Searching components...</p>
-          </div>
-        )}
-
-        {!isSearching && components.length > 0 && submittedQuery && (
-          <>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Showing results for '{submittedQuery}'
-            </h2>
-
-            {message && <AISummary summary={message} />}
-
-            {filtersEnabled && <Filters onApplyFilters={handleApplyFilters} />}
-
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Components</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {components.length > 0 && (
+        <section>
+          <h2 className="govuk-heading-l govuk-!-padding-top-7">Components</h2>
+          <div className="govuk-width-container">
+            <ul className="govuk-grid-row card-group">
               {components.map((component, index) => (
-                <ComponentCard
-                  key={`${component.url}-${index}`}
-                  component={component}
-                />
+                <li key={index} className="govuk-grid-column-one-third card-group__item">
+                  <ComponentCard component={component} />
+                </li>
               ))}
-            </div>
-          </>
-        )}
-
-        {!isSearching && components.length === 0 && !submittedQuery && (
-          <div className="text-center py-12 text-gray-500">
-            <p>Enter a search query to discover building blocks</p>
+            </ul>
           </div>
-        )}
-      </main>
-    </div>
+        </section>
+      )}
+
+      {message && (
+        <section className="govuk-!-padding-top-7 govuk-!-padding-bottom-8">
+          <div className="govuk-width-container">
+            <AISummary summary={message} />
+          </div>
+        </section>
+      )}
+
+      {filtersEnabled && (
+        <Filters onApplyFilters={handleApplyFilters} />
+      )}
+    </main>
   );
 }
