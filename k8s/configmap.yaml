@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: govuk-route-library-config
+  labels:
+    app: govuk-route-library
+data:
+  # Search API Configuration
+  # Leave empty to use the built-in mock API at /api/search
+  # Set to an external URL to use a different backend
+  # Example: https://api.example.gov.uk
+  SEARCH_API_URL: ""
+
+  # Feature Flags
+  # Set to 'true' to enable filters on the results page
+  ENABLE_FILTERS: "false"

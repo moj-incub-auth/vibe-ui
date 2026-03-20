@@ -148,9 +148,33 @@ const mockComponents: Component[] = [
   },
 ];
 
+// Handle CORS preflight requests
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: SearchRequest = await request.json();
+
+    if (!body.message) {
+      return NextResponse.json(
+        { error: "Message is required" },
+        {
+          status: 400,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
+    }
 
     // Mock AI response - in production, this would call an AI service
     const response: SearchResponse = {
@@ -160,12 +184,21 @@ export async function POST(request: NextRequest) {
       components: mockComponents,
     };
 
-    return NextResponse.json(response);
+    return NextResponse.json(response, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
   } catch (error) {
     console.error("Search API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
     );
   }
 }

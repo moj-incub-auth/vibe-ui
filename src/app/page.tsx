@@ -5,6 +5,7 @@ import ComponentCard from "@/components/ComponentCard";
 import SearchHeader from "@/components/SearchHeader";
 import Filters from "@/components/Filters";
 import { searchComponents } from "@/lib/api";
+import { getRuntimeConfig } from "@/lib/config";
 import type { Component } from "@/types/api";
 
 export default function Home() {
@@ -13,10 +14,14 @@ export default function Home() {
   const [allComponents, setAllComponents] = useState<Component[]>([]);
   const [displayComponents, setDisplayComponents] = useState<Component[]>([]);
   const [error, setError] = useState<string>("");
+  const [filtersEnabled, setFiltersEnabled] = useState(false);
 
-  // Feature flag for filters
-  const filtersEnabled =
-    process.env.NEXT_PUBLIC_ENABLE_FILTERS === "true";
+  // Load runtime configuration on mount
+  useEffect(() => {
+    getRuntimeConfig().then((config) => {
+      setFiltersEnabled(config.enableFilters);
+    });
+  }, []);
 
   useEffect(() => {
     async function fetchData() {

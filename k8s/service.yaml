@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: govuk-route-library
+  labels:
+    app: govuk-route-library
+    component: frontend
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3000
+    protocol: TCP
+  selector:
+    app: govuk-route-library

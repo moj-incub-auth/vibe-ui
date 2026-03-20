@@ -1,10 +1,5 @@
 import type { SearchRequest, SearchResponse } from "@/types/api";
-
-// Get the search API URL from environment variable, default to local API
-const getSearchApiUrl = () => {
-  const envUrl = process.env.NEXT_PUBLIC_SEARCH_API_URL;
-  return envUrl || "/api/search";
-};
+import { getRuntimeConfig } from "@/lib/config";
 
 export async function searchComponents(
   query: string
@@ -13,7 +8,13 @@ export async function searchComponents(
     message: query,
   };
 
-  const apiUrl = getSearchApiUrl();
+  // Get runtime config (reads from server-side env vars)
+  const config = await getRuntimeConfig();
+  const apiUrl = config.searchApiUrl;
+
+  if (!apiUrl) {
+    throw new Error("Search API URL not configured");
+  }
 
   const response = await fetch(apiUrl, {
     method: "POST",

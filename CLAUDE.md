@@ -47,17 +47,41 @@ src/
 
 ## Environment Variables
 
+The application uses **runtime configuration** - environment variables are read when the server starts, not at build time. This means you can change configuration without rebuilding.
+
 Copy `.env.example` to `.env.local` and configure:
 
-- **NEXT_PUBLIC_SEARCH_API_URL**: Backend search API URL
+### Runtime Variables (Read at Server Startup)
+
+- **SEARCH_API_URL**: Backend search API URL
   - Leave empty to use built-in mock API at `/api/search`
   - Set to external URL (e.g., `https://api.example.gov.uk`) to use a different backend
-  - Must be a `NEXT_PUBLIC_` variable to be accessible in client-side code
+  - Can be changed at runtime without rebuilding
 
-- **NEXT_PUBLIC_ENABLE_FILTERS**: Feature flag for filters on results page
+- **ENABLE_FILTERS**: Feature flag for filters on results page
   - Set to `true` to enable the filters component
   - Set to `false` (default) to hide filters
-  - Useful for progressive feature rollout
+  - Can be changed at runtime without rebuilding
+
+### Docker Runtime Configuration
+
+When running in Docker, set environment variables at container startup:
+
+```bash
+docker run -e SEARCH_API_URL=https://api.example.com -e ENABLE_FILTERS=true -p 3000:3000 app
+```
+
+Or in docker-compose.yml:
+
+```yaml
+environment:
+  - SEARCH_API_URL=https://api.example.gov.uk
+  - ENABLE_FILTERS=true
+```
+
+### Legacy Build-Time Variables
+
+For backwards compatibility, `NEXT_PUBLIC_SEARCH_API_URL` and `NEXT_PUBLIC_ENABLE_FILTERS` are still supported but are embedded at build time. Use the new `SEARCH_API_URL` and `ENABLE_FILTERS` variables for runtime configuration.
 
 ## TypeScript Configuration
 
