@@ -95,6 +95,32 @@ const mockComponents: Component[] = [
     views: 289,
   },
   {
+    title: "DWP benefits search",
+    url: "https://design-system.dwp.gov.uk/patterns/benefits-search",
+    description:
+      "A search pattern for finding benefit entitlement information quickly.",
+    parent: "DWP Design System",
+    category: "pattern",
+    accessability: "AA",
+    created_at: "2025-09-23T10:00:00",
+    updated_at: "2026-02-22T10:10:00",
+    has_research: true,
+    views: 510,
+  },
+  {
+    title: "NHS service navigation",
+    url: "https://service-manual.nhs.uk/design-system/components/service-navigation",
+    description:
+      "A component for service-level navigation that prioritises key tasks.",
+    parent: "NHS Design System",
+    category: "component",
+    accessability: "AAA",
+    created_at: "2025-08-25T09:30:00",
+    updated_at: "2026-03-01T12:40:00",
+    has_research: true,
+    views: 420,
+  },
+  {
     title: "Search analytics",
     url: "https://design.tax.service.gov.uk/patterns/search-analytics",
     description:
@@ -126,16 +152,11 @@ export async function POST(request: NextRequest) {
   try {
     const body: SearchRequest = await request.json();
 
-    if (!body.message) {
-      return NextResponse.json(
-        { error: "Message is required" },
-        { status: 400 }
-      );
-    }
-
     // Mock AI response - in production, this would call an AI service
     const response: SearchResponse = {
-      message: `Found ${mockComponents.length} reusable building blocks across government departments. The Ministry of Justice and HMRC both maintain mature implementations following GDS accessibility standards.`,
+      message: body.message
+        ? `Found ${mockComponents.length} reusable building blocks across government departments. The Ministry of Justice and HMRC both maintain mature implementations following GDS accessibility standards.`
+        : "",
       components: mockComponents,
     };
 
