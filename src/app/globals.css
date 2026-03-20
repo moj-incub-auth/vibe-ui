@@ -19,10 +19,45 @@ body {
 }
 
 /* Custom hero styling (matches GOV.UK hero / branding) */
+.govuk-phase-banner,
+.govuk-service-navigation {
+  margin: 0;
+  padding: 0;
+}
+
 .hero {
+  margin-top: 0;
   background-color: #c51f5d;
   padding: 70px 15px;
   color: #ffffff;
+}
+
+.govuk-service-navigation__container {
+  padding-bottom: 0;
+}
+
+.govuk-phase-banner {
+  padding-bottom: 0;
+}
+
+.govuk-main-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.govuk-service-navigation,
+.govuk-service-navigation__container,
+.govuk-service-navigation__wrapper {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.govuk-service-navigation {
+  border-bottom: 0 !important;
+}
+
+.govuk-service-navigation .govuk-service-navigation__container {
+  padding-bottom: 0;
 }
 
 .hero__heading {
@@ -132,12 +167,21 @@ body {
 .card__tags {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 10px;
 }
 
-.card__tags .govuk-tag {
-  text-align: center;
+.card__tags .govuk-tag.card__tag-chip {
+  box-sizing: border-box;
+  display: inline-block !important;
+  align-self: flex-start;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 4px 12px 5px !important;
+  white-space: nowrap;
+  text-align: left;
 }
 
 .card-group {

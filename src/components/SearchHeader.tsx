@@ -66,11 +66,6 @@ export default function SearchHeader({
               spellCheck={true}
               className="govuk-textarea"
             />
-            {error ? (
-              <p className="govuk-error-message">
-                <span className="govuk-visually-hidden">Error:</span> {error}
-              </p>
-            ) : null}
           </div>
 
           <button
