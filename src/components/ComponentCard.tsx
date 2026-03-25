@@ -23,7 +23,9 @@ export default function ComponentCard({ component }: ComponentCardProps) {
     description,
     parent,
     has_research,
+    needs_research,
     views,
+    score,
     accessability,
     updated_at,
   } = component;
@@ -56,14 +58,20 @@ export default function ComponentCard({ component }: ComponentCardProps) {
           </p>
         )}
 
+        {score && (
+          <p className="govuk-body-s">
+            Score: {score}
+          </p>
+        )}
+
         <div className="card__tags">
           {accessability && accessability.length > 0 && (
             <strong className="govuk-tag govuk-tag--teal">Accessible</strong>
           )}
-
-          {has_research ? (
+          {has_research && (
             <strong className="govuk-tag govuk-tag--blue">Research available</strong>
-          ) : (
+          )}
+          {needs_research && (
             <strong className="govuk-tag govuk-tag--yellow">Needs research</strong>
           )}
         </div>

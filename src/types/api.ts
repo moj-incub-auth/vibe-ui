@@ -24,5 +24,7 @@ export type Component = {
   created_at: string;
   updated_at: string;
   has_research: boolean;
+  needs_research: boolean;
+  score: number;
   views: number;
 };

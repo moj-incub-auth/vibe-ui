@@ -14,6 +14,8 @@ const mockComponents: Component[] = [
     created_at: "2025-10-12T09:00:00",
     updated_at: "2026-03-15T11:30:00",
     has_research: true,
+    needs_research: false,
+    score: 0.9,
     views: 892,
   },
   {
@@ -27,6 +29,8 @@ const mockComponents: Component[] = [
     created_at: "2025-11-05T14:20:00",
     updated_at: "2026-02-20T10:15:00",
     has_research: true,
+    needs_research: false,
+    score: 0.8,
     views: 654,
   },
   {
@@ -40,6 +44,8 @@ const mockComponents: Component[] = [
     created_at: "2025-12-01T08:45:00",
     updated_at: "2026-03-10T16:00:00",
     has_research: true,
+    needs_research: false,
+    score: 0.7,
     views: 421,
   },
   {
@@ -53,6 +59,8 @@ const mockComponents: Component[] = [
     created_at: "2025-09-18T11:30:00",
     updated_at: "2026-01-25T13:45:00",
     has_research: true,
+    needs_research: true,
+    score: 0.6,
     views: 738,
   },
   {
@@ -65,7 +73,9 @@ const mockComponents: Component[] = [
     accessability: "AA",
     created_at: "2025-11-20T09:15:00",
     updated_at: "2026-02-28T16:45:00",
-    has_research: false,
+    has_research: false,  
+    needs_research: false,
+    score: 0.5,
     views: 567,
   },
   {
@@ -78,7 +88,9 @@ const mockComponents: Component[] = [
     accessability: "AA",
     created_at: "2025-10-30T10:00:00",
     updated_at: "2026-03-05T14:30:00",
-    has_research: false,
+    has_research: false,  
+    needs_research: true,
+    score: 0.4,
     views: 345,
   },
   {
@@ -92,6 +104,8 @@ const mockComponents: Component[] = [
     created_at: "2025-12-10T13:20:00",
     updated_at: "2026-03-12T09:50:00",
     has_research: true,
+    needs_research: false,
+    score: 0.3,
     views: 289,
   },
   {
@@ -104,7 +118,9 @@ const mockComponents: Component[] = [
     accessability: "AA",
     created_at: "2025-11-15T15:40:00",
     updated_at: "2026-02-18T11:25:00",
-    has_research: false,
+    has_research: false,  
+    needs_research: false,
+    score: 0.2,
     views: 198,
   },
   {
@@ -118,6 +134,8 @@ const mockComponents: Component[] = [
     created_at: "2025-12-20T10:10:00",
     updated_at: "2026-03-08T15:20:00",
     has_research: false,
+    needs_research: false,
+    score: 0.1,
     views: 156,
   },
 ];
