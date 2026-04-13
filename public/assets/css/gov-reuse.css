@@ -4187,6 +4187,10 @@ p + .govuk-heading-s,
   color: #651b3e;
   background-color: #f4d7e5;
 }
+.govuk-tag-text-left {
+    text-align: left !important;
+    max-width: none;
+}
 .govuk-phase-banner {
   padding-top: 10px;
   padding-bottom: 10px;

@@ -64,13 +64,13 @@ export default function ComponentCard({ component }: ComponentCardProps) {
 
         <div className="card__tags">
           {accessability && accessability.length > 0 && (
-            <strong className="govuk-tag govuk-tag--teal">Accessible</strong>
+            <div><strong className="govuk-tag govuk-tag--teal govuk-tag-text-left">Accessible</strong></div>
           )}
           {has_research && (
-            <strong className="govuk-tag govuk-tag--blue">Research available</strong>
+            <div><strong className="govuk-tag govuk-tag--blue govuk-tag-text-left">Research available</strong></div>
           )}
           {needs_research && (
-            <strong className="govuk-tag govuk-tag--yellow">Needs research</strong>
+            <div><strong className="govuk-tag govuk-tag--yellow govuk-tag-text-left">Needs research</strong></div>
           )}
         </div>
       </footer>

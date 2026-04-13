@@ -60,8 +60,10 @@ export default function Home() {
 
       {components.length > 0 && (
         <section>
-          <div className="govuk-!-padding-top-4 govuk-!-padding-bottom-4">
-            <p className="govuk-heading-s">Showing results for "{searchQuery}"</p>
+          <div className="govuk-width-container">
+            <div className="govuk-!-padding-top-4 govuk-!-padding-bottom-4">
+              <p className="govuk-heading-s">Showing results for "{searchQuery}"</p>
+            </div>
           </div>
           <div className="govuk-width-container">
             <h2 className="govuk-heading-l govuk-!-padding-top-7">Patterns and components</h2>
