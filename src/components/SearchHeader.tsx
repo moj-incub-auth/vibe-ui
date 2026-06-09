@@ -29,7 +29,7 @@ export default function SearchHeader({
               <h1 className="govuk-heading-xl govuk-!-margin-bottom-6 hero__heading">
                 <span>Search all design systems for reusable assets</span>
               </h1>
-              <p className="govuk-body-m hero__description">
+              <p className="govuk-body-l hero__description">
                 Find components and patterns used across government.
               </p>
             
@@ -42,8 +42,11 @@ export default function SearchHeader({
         <form onSubmit={handleSubmit}>
           <div className="govuk-form-group">
             <label className="govuk-label govuk-label--m" htmlFor="search-query">
-              Describe what you&apos;re looking for in your own words.
+              Describe what you&apos;re looking for in your own words
             </label>
+            <div id="search-query-hint" className="govuk-hint">
+        For example, I need to warn users before they continue
+      </div>
             <textarea
               id="search-query"
               name="searchQuery"
