@@ -9,7 +9,8 @@ data:
   # Leave empty to use the built-in mock API at /api/search
   # Set to an external URL to use a different backend
   # Example: https://api.example.gov.uk
-  SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-6ldk6.6ldk6.sandbox2187.opentlc.com/search"
+  # for demo: SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-6ldk6.6ldk6.sandbox2187.opentlc.com/search"
+  SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-qx6zw.qx6zw.sandbox2120.opentlc.com/search"
 
   # Feature Flags
   # Set to 'true' to enable filters on the results page
