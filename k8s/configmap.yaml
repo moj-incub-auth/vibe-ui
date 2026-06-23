@@ -10,7 +10,7 @@ data:
   # Set to an external URL to use a different backend
   # Example: https://api.example.gov.uk
   # for demo: SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-6ldk6.6ldk6.sandbox2187.opentlc.com/search"
-  SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-trdww.trdww.sandbox3406.opentlc.com"
+  SEARCH_API_URL: "https://moj-search-app-moj-vector-data.apps.cluster-trdww.trdww.sandbox3406.opentlc.com/search"
 
   # Feature Flags
   # Set to 'true' to enable filters on the results page
