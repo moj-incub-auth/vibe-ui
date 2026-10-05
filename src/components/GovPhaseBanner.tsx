@@ -46,7 +46,7 @@ export default function GovPhaseBanner() {
           </p>
 
           <p className="govuk-body">
-            Available until 5pm Friday July 3rd, 2026.
+            Available until 5pm Friday October 9th, 2026.
           </p>
         </div>
       </div>
